@@ -18,5 +18,7 @@ jobs:
         run: python  main_lz_c1.py
       - name: 'save'
         run: |
+          git config --global user.email 1031346629@qq.com
+          git config --global user.name sym
           git add *
           git commit -m "update"
