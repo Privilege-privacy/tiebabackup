@@ -1,6 +1,12 @@
 name: 'Baidu Tieba Auto Sign'
 
-on: [push]
+on:
+    push:
+    schedule:
+   # 定时任务，在每天的5点推送天气信息到邮箱
+     - cron: '0 21 * * *'
+
+
 
 jobs:
   tieba_sign:
@@ -22,3 +28,4 @@ jobs:
           git config --global user.name sym
           git add *
           git commit -m "update"
+          git push -u origin master
