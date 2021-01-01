@@ -1,0 +1,22 @@
+name: 'Baidu Tieba Auto Sign'
+
+on: [push]
+
+jobs:
+  tieba_sign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Set python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.6'
+      - name: 'Install dependencies'
+        run: python -m pip install -r requirements.txt
+      - name: 'Start Sign'
+        run: python  main_lz_c1.py
+      - name: 'save'
+        run: |
+          git add *
+          git commit -m "update"
