@@ -238,7 +238,7 @@ def CallFunc(func=None, args=None, kwargs=None):
 # times == -1 ---> forever
 
 
-def Retry(func, args=None, kwargs=None, cfunc=None, ffunc=None, fargs=None, fkwargs=None, times=3, sleep=1):
+def Retry(func, args=None, kwargs=None, cfunc=None, ffunc=None, fargs=None, fkwargs=None, times=3, sleep=100):
     fg = 0
     while times:
         try:
@@ -574,7 +574,7 @@ if __name__ == '__main__':
         try:
             if pids.index(pid) < len(pids) - 1:
                 Avalon.info("10s后进行下一个帖子...\n", front="\n\n")
-                time.sleep(10)
+                time.sleep(300)
                 DirName_flag = DirName_flag + 1
             else:
                 Avalon.info("全部帖子已经备份完成！", front="\n\n")
